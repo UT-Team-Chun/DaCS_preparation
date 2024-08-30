@@ -87,6 +87,10 @@ def fetch_img(img_url):
 
 
 def save_77_excel(loc, year, save_path):
+    if os.path.exists(save_path):
+        print(f"File already exists at {save_path}.")
+        return True
+    
     url = f'{URL}report77/{loc}/{year}'
     response = requests.get(url, headers=API_HEAD)
     print(response.text)
